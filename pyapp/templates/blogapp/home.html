@@ -39,7 +39,7 @@ Blog
 
 <div class="container h-100 text-center mycolor my-3 rounded-3 ">
     <div class="mt-5">
-        <h2>Blog Posts</h2>
+        <h2 id='typed-heading'>Blog Posts</h2>
         <hr>
 
         {% for msg in messages %}
@@ -53,7 +53,7 @@ Blog
         {% for blg in blog %}
         <div class="row my-3">
             <div class="col-md-12 text-light shadow-lg p-3 mb-5  rounded">
-                <h3 class="font-heading">{{ blg.Title|slice:":30"|capfirst }}</h3>
+                <h3 class="readhead font-heading">{{ blg.Title|slice:":30"|capfirst }}</h3>
                 <p class="font-para">{{ blg.Desc|slice:":300"|capfirst }}..</p>
                 <a href="{% url 'readblog' blg.U_id %}" class="btn btn-primary">Read More...</a>
 
@@ -75,3 +75,24 @@ Blog
     </div>
 </div>
 {% endblock content %}
+
+
+
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"> </script>
+
+<script>
+    const options = {
+        strings: ['Blog Post', "Hey User", 'Welcome to The Blog'],
+        typeSpeed: 50,
+        startDelay: 100,
+        cursorChar: ''
+    };
+
+    const typedHeading = new Typed('#typed-heading', options);
+    typedHeading.start();
+</script>
+
+
+{% endblock js %}

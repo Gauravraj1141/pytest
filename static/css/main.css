@@ -1,7 +1,6 @@
  @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Geo&family=Graduate&family=Kameron&family=Roboto+Slab:wght@300&family=Sanchez&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Black+Ops+One&family=Geo&family=Graduate&family=Kameron&family=Open+Sans&family=Roboto+Slab:wght@300&family=Sanchez&display=swap');
-
-
+ @import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Rubik+Bubbles&display=swap');
 
  .navbar {
      position: fixed;
@@ -65,7 +64,26 @@
  }
 
 
-
  .custom-dark-blue {
      color: #0b2e59;
+ }
+
+
+ .readhead {
+     color: #d2ff11;
+ }
+
+ #typed-heading {
+     color: #00ffca;
+     font-size: 37px;
+     font-weight: bold;
+     font-family: 'Concert One', cursive;
+ }
+
+
+ #typed-heading1 {
+     color: #1eff00;
+     font-size: 37px;
+     font-weight: bold;
+     font-family: 'Concert One', cursive;
  }

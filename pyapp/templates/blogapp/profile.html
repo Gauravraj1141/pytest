@@ -26,7 +26,6 @@ Profile
 
 <div class="container h-100 text-center mycolor my-2 rounded-3 ">
     <div class="mt-4">
-        <h2>User Profile</h2>
         <hr>
 
         {% for msg in messages %}
@@ -36,7 +35,7 @@ Profile
         {% endfor %}
 
 
-        <h3>Hey {{ name }} , Welcome to your blogs</h3>
+        <h3 id="typed-heading">Hey <span id="myname">{{ name }}</span> , Welcome to your blogs</h3>
 
         <div class="d-flex justify-content-end">
             <a href="{% url 'showblog' %}" class="btn btn-outline-warning ">Add Blog</a>
@@ -69,3 +68,24 @@ Profile
     </div>
 </div>
 {% endblock content %}
+
+
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"> </script>
+
+<script>
+    var name = document.getElementById("myname").innerHTML;
+    const options = {
+        strings: ['Add Your Blogs', `Hey ${name} , Welcome to your blogs `],
+        typeSpeed: 50,
+        startDelay: 100,
+        cursorChar: ''
+    };
+
+    const typedHeading = new Typed('#typed-heading', options);
+    typedHeading.start();
+</script>
+
+
+{% endblock js %}
