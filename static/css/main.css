@@ -19,9 +19,10 @@
  }
 
 
- .nav-link {
-     font-size: 20px;
-     color: orange;
+ .nav-item {
+     font-size: 30px;
+     font-family: 'Rubik Bubbles', cursive;
+
  }
 
  .navbar-brand {
@@ -86,4 +87,26 @@
      font-size: 37px;
      font-weight: bold;
      font-family: 'Concert One', cursive;
+ }
+
+
+
+ /* CSS code for styling the About Us page */
+ .about-heading {
+     color: #ff39b0;
+     font-size: 42px;
+     text-align: center;
+     font-family: 'Concert One', cursive;
+ }
+
+ .about-para {
+     font-size: 30px;
+     line-height: 2;
+     color: rgb(147 236 184);
+     font-family: 'Comfortaa', cursive;
+ }
+
+ #headblog {
+     color: #d2ff11;
+     font-weight: bold;
  }

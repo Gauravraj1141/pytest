@@ -13,5 +13,6 @@ urlpatterns = [
     path("readblog/<int:id>/", views.User_read_blog, name="readblog"),
     path("update/<int:id>/", views.User_Update_blog, name="update"),
     path("delete/<int:id>/", views.User_Delete_blog, name="delete"),
+    path("about", views.about_blog, name="about"),
 
 ]

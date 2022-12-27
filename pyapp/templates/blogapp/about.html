@@ -1,0 +1,86 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+
+
+<!--title -->
+{% block title %}
+About Us
+{% endblock title %}
+
+
+
+{% comment %} it is the logic for our login and logout buttons {% endcomment %}
+
+{% block buttons %}
+
+{% if login %}
+
+<div class="d-flex" role="button">
+    <a class=" btn btn-success mx-2 " href="{% url 'logout' %}">Log Out</a>
+    <a href="{% url 'profile' %}"><img class="mx-2 profile-img" title="Profile" src="{% static 'images/profile.png' %}"
+            alt="Profile Icon"></a>
+
+</div>
+
+
+{% else %}
+
+<div class="d-flex" role="button">
+    <a class=" btn btn-success mx-2 " href="{% url 'register' %}">Sign Up</a>
+    <a class=" btn btn-primary" href="{% url 'login' %}">Log In</a>
+</div>
+
+{% endif %}
+
+{% endblock buttons %}
+
+<!--body content -->
+{% block content %}
+<!-- HTML code for the About Us page -->
+<div class="container mt-5">
+    <h1 class="about-heading">About Us</h1>
+    <div class="about-para row">
+        <div class="col-10 mx-auto my-4 ">
+
+            <p id="headblog"> Hellow!</p>
+            <p>Our blog is a place for sharing knowledge and creativity. Here, you'll find posts on a range of topics.
+                You can also contribute your own blog post by logging in
+                or registering for an account. Don't miss out on the chance to share your ideas with our community!</p>
+            <p>Our mission is to provide high-quality, reliable, and thought-provoking content that educates and
+                inspires
+                our readers. We believe in the power of knowledge and strive to share it with as many people as
+                possible.
+            </p>
+            <p>We are passionate about sharing our
+                knowledge
+                and insights. We take pride in the research and effort that goes into each and every one of our
+                articles.
+            </p>
+            <p>Thank you for visiting our blog. We hope you enjoy reading our content as much as we enjoy creating it.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"> </script>
+
+<script>
+    const options = {
+        strings: ['Hellow!', "Welcome to our blog!"],
+        typeSpeed: 50,
+        startDelay: 100,
+        cursorChar: ''
+    };
+
+    const typedHeading = new Typed('#headblog', options);
+    typedHeading.start();
+</script>
+
+
+{% endblock js %}

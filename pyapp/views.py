@@ -153,3 +153,14 @@ def User_Delete_blog(request, id):
         blogupdatedata.delete()
         messages.success(request, "This blog has been deleted!")
         return redirect("/profile/")
+
+
+# about page
+
+def about_blog(request):
+    if request.user.is_authenticated:
+        login = True
+        return render(request, "blogapp/about.html", {"login": login})
+    else:
+        login = False
+        return render(request, "blogapp/about.html", {"login": login})
