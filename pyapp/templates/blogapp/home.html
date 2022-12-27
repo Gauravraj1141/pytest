@@ -57,7 +57,7 @@ Blog
                 <p class="font-para">{{ blg.Desc|slice:":300"|capfirst }}..</p>
                 <a href="{% url 'readblog' blg.U_id %}" class="btn btn-primary">Read More...</a>
 
-                <div class="d-flex justify-content-end text-warning gap-2 ">
+                <div class="d-flex justify-content-end text-warning gap-2 my-3">
                     <small>Written by
                         {{ blg.Author|capfirst }}
                     </small>
