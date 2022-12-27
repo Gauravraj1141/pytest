@@ -1,0 +1,50 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% block title %}
+Blog
+{% endblock title %}
+
+
+{% block buttons %}
+<div class="d-flex" role="button">
+    <a class=" btn btn-success mx-2 " href="{% url 'logout' %}">Log Out</a>
+    <a href="{% url 'profile' %}"><img class="mx-2 profile-img" title="Profile" src="{% static 'images/profile.png' %}"
+            alt="Profile Icon"></a>
+
+</div>
+{% endblock buttons %}
+
+
+{% block content %}
+
+<div class="container h-100 text-center mycolor my-2 rounded-3 ">
+    <div class="mt-4">
+        <h2>Blog Post</h2>
+        <hr>
+
+        {% for msg in messages %}
+        <div class="alert alert-success" role="alert" id="alert">
+            <h4 {% if msg.tags %} class=" {{ msg.tags }}  alert-heading" {% endif %}>{{ msg }}</h4>
+        </div>
+        {% endfor %}
+
+        <div class="row">
+            <div class="col-md-12  shadow-lg p-3 mb-5  rounded">
+                <h3 class="font-heading">{{ blog.Title|capfirst }}</h3>
+
+                <p class="font-para">{{ blog.Desc|capfirst }}</p>
+            </div>
+
+            <div class="d-flex justify-content-end text-warning gap-2">
+                <small>Written by
+                    {{ blog.Author|capfirst }}
+                </small>
+            </div>
+            <div class="d-flex justify-content-end text-warning gap-2 my-2">
+                <small>{{ blog.Date|date:'d F, Y' }}
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

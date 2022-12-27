@@ -1,0 +1,69 @@
+{% extends 'blogapp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Show Blogs
+{% endblock title %}
+
+
+<!--log out button -->
+
+
+{% block buttons %}
+<div class="d-flex" role="button">
+    <a class=" btn btn-success mx-2 " href="{% url 'logout' %}">Log Out</a>
+    <a href="{% url 'profile' %}"><img class="mx-2 profile-img" title="Profile" src="{% static 'images/profile.png' %}"
+            alt="Profile Icon"></a>
+</div>
+{% endblock buttons %}
+
+<!--content -->
+
+{% block content %}
+
+<div class="container h-100 text-center mycolor my-2 rounded-3 ">
+    <div class="mt-4">
+        <h2>Update Your blog</h2>
+        <hr>
+        {% if form.non_field_errors %}
+        <div class="non-field-errors">
+            {% for err in form.non_field_errors %}
+            <p class="form-error">{{ err }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% for msg in messages %}
+        <div class="alert alert-success" role="alert" id="alert">
+            <h4 {% if msg.tags %} class=" {{ msg.tags }}  alert-heading" {% endif %}>{{ msg }}</h4>
+        </div>
+        {% endfor %}
+
+        <div class="row  justify-content-md-center">
+            <div class="col-md-8">
+                <form action="" method="POST" novalidate>
+                    {% csrf_token %}
+
+                    {% for field in form %}
+
+                    <div class="form-outline mb-4 rounded-2">
+                        <label class="form-label " for="{{ field.auto_id }}">{{ field.label }}</label>
+                        {{ field }}
+                        <div class="d-grid  d-md-flex justify-content-md-end">
+                            <span class="text-danger"> {{ field.errors|striptags }}</span>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+
+                    <input type="submit" value="Update blog" class="btn btn-warning my-2">
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

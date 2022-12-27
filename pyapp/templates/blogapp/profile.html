@@ -1,0 +1,71 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+
+{% block title %}
+Profile
+{% endblock title %}
+
+
+<!--log out button -->
+
+
+{% block buttons %}
+<div class="d-flex" role="button">
+    <a class=" btn btn-success mx-2 " href="{% url 'logout' %}">Log Out</a>
+    <a href="{% url 'profile' %}"><img class="mx-2 profile-img" title="Profile" src="{% static 'images/profile.png' %}"
+            alt="Profile Icon"></a>
+
+</div>
+{% endblock buttons %}
+
+
+
+<!--content -->
+
+{% block content %}
+
+<div class="container h-100 text-center mycolor my-2 rounded-3 ">
+    <div class="mt-4">
+        <h2>User Profile</h2>
+        <hr>
+
+        {% for msg in messages %}
+        <div class="alert alert-success" role="alert" id="alert">
+            <h4 {% if msg.tags %} class=" {{ msg.tags }}  alert-heading" {% endif %}>{{ msg }}</h4>
+        </div>
+        {% endfor %}
+
+
+        <h3>Hey {{ name }} , Welcome to your blogs</h3>
+
+        <div class="d-flex justify-content-end">
+            <a href="{% url 'showblog' %}" class="btn btn-outline-warning ">Add Blog</a>
+        </div>
+
+        <hr>
+
+        <div class="list-group m-3">
+            {% for blg in blogs  %}
+            <div class="list-group-item list-group-item-action flex-column align-items  my-3 rounded-3 ">
+                <div class="d-flex w-100 justify-content-between">
+                    <h3 class="mb-2">
+                        <p class="font-heading text-dark">{{ blg.Title|capfirst }}</p>
+                    </h3>
+                    <small>{{ blg.Date|date:'d F, Y' }}</small>
+                </div>
+                <p class="mb-1">
+                    <p class="font-para text-dark">{{ blg.Desc|capfirst }}</p>
+                </p>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-end">
+                    <a href="{% url 'update' blg.U_id %}" class="btn btn-outline-success mx-3">Update</a>
+                    <a href="{% url 'delete' blg.U_id %}" class="btn btn-outline-warning">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
